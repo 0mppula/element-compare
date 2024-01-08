@@ -44,7 +44,7 @@ const Element = ({ element, nextElement }: ElementProps) => {
 
 			<Card
 				className={`p-1 col-span-1 row-start-${elementRowStart} w-[74px] text-wrap text-[12px] ${
-					isLanthanide ? 'mt-2' : 'mt-0'
+					isLanthanide ? 'mt-0' : 'mt-0'
 				}`}
 			>
 				<div>
