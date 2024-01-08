@@ -42,9 +42,7 @@ const Element = ({ element, nextElement }: ElementProps) => {
       lanthanide or actinide elements. */}
 			<div className={isFirstLanthanide || isFirstActinide ? 'col-span-3' : 'hidden'} />
 
-			<Card
-				className={`p-1 col-span-1 row-start-${elementRowStart} w-[74px] text-wrap text-[12px]`}
-			>
+			<Card className={`p-1 col-span-1 row-start-${elementRowStart}  text-wrap text-[12px]`}>
 				<div>
 					<p className="flex justify-between items-center">{element.AtomicNumber}</p>
 				</div>
@@ -59,8 +57,8 @@ const Element = ({ element, nextElement }: ElementProps) => {
 			</Card>
 
 			{/* The following div spans the empty space that is allocated for the lanthanide and actinide elements seperator. */}
-			{isLastBeforeLanthanide && <Card className="bg-green-500 min-w-[74px]" />}
-			{isLastBeforeActinide && <Card className="bg-blue-500 min-w-[74px]" />}
+			{isLastBeforeLanthanide && <Card className="bg-green-500" />}
+			{isLastBeforeActinide && <Card className="bg-blue-500" />}
 
 			{isLastBeforeLanthanide && <div className="row-start-8 col-span-18 h-2" />}
 

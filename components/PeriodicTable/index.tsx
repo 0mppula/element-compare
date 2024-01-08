@@ -19,7 +19,7 @@ const PeriodicTable = () => {
 	const reOrderedElements = [...nonLanthanideActinideElements, ...lanthadineAndActinideElements];
 
 	return (
-		<div className="grid grid-cols-18 grid-rows-[repeat(8, minmax(0, 1fr)), auto, 1fr] gap-1 overflow-x-auto min-w-[1400px]">
+		<div className="grid grid-cols-18 grid-rows-[repeat(8, minmax(0, 1fr)), auto, 1fr] gap-1">
 			{reOrderedElements.map((element, i) => (
 				<Element
 					key={`${element.Element}`}
