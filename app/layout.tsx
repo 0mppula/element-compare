@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Source_Code_Pro } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import Nav from '@/components/Nav';
 
 const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body
 				className={`${cn(
 					sourceCodePro.className,
@@ -21,6 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				)}`}
 			>
 				<ThemeProvider attribute="class" defaultTheme="system">
+					<Nav />
+
 					{children}
 				</ThemeProvider>
 			</body>
