@@ -43,7 +43,9 @@ const Element = ({ element, nextElement }: ElementProps) => {
 			<div className={isFirstLanthanide || isFirstActinide ? 'col-span-3' : 'hidden'} />
 
 			<Card
-				className={`p-1 col-span-1 row-start-${elementRowStart} w-[74px] text-wrap text-[12px]`}
+				className={`p-1 col-span-1 row-start-${elementRowStart} w-[74px] text-wrap text-[12px] ${
+					isLanthanide ? 'mt-2' : 'mt-0'
+				}`}
 			>
 				<div>
 					<p className="flex justify-between items-center">{element.AtomicNumber}</p>
