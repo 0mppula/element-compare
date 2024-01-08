@@ -1,3 +1,9 @@
+import PeriodicTable from '@/components/PeriodicTable';
+
 export default function Home() {
-	return <main>{/* <h1>Element Compare</h1> */}</main>;
+	return (
+		<section className="py-8">
+			<PeriodicTable />
+		</section>
+	);
 }

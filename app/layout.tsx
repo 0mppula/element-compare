@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body
 				className={`${cn(
 					sourceCodePro.className,
-					'min-h-svh text-neutral-900 dark:text-neutral-50 bg-neutral-100 dark:bg-neutral-950 antialiased'
+					'text-neutral-900 dark:text-neutral-50 bg-neutral-100 dark:bg-neutral-950 antialiased'
 				)}`}
 			>
 				<ThemeProvider attribute="class" defaultTheme="system">

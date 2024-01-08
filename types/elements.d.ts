@@ -7,24 +7,24 @@ export interface IElement {
 	NumberofProtons: number;
 	NumberofElectrons: number;
 	Period: number;
-	Group: number;
-	Phase: 'gas' | 'solid' | 'liquid';
-	Radioactive: '' | 'yes'; // Assuming Radioactive can only be '' or 'yes'
-	Natural: 'yes' | ''; // Assuming Natural can only be '' or 'yes'
-	Metal: '' | 'yes'; // Assuming Metal can only be '' or 'yes'
-	Nonmetal: 'yes' | ''; // Assuming Nonmetal can only be '' or 'yes'
-	Metalloid: '' | 'yes'; // Assuming Metalloid can only be '' or 'yes'
+	Group: number | string;
+	Phase: string;
+	Radioactive: string;
+	Natural: string;
+	Metal: string;
+	Nonmetal: string;
+	Metalloid: string;
 	Type: string;
-	AtomicRadius: number;
-	Electronegativity: number;
-	FirstIonization: number;
-	Density: number;
-	MeltingPoint: number;
-	BoilingPoint: number;
-	NumberOfIsotopes: number;
+	AtomicRadius: number | string;
+	Electronegativity: number | string;
+	FirstIonization: number | string;
+	Density: number | string;
+	MeltingPoint: number | string;
+	BoilingPoint: number | string;
+	NumberOfIsotopes: number | string;
 	Discoverer: string;
-	Year: number;
-	SpecificHeat: number;
+	Year: number | string;
+	SpecificHeat: number | string;
 	NumberofShells: number;
-	NumberofValence: number;
+	NumberofValence: number | string;
 }
