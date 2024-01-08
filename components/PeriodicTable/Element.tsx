@@ -20,7 +20,7 @@ const Element = ({ element, nextElement }: ElementProps) => {
 	const isLastBeforeLanthanide = element.AtomicNumber === lanthanidesAtomicNumbers[0] - 1;
 	const isLastBeforeActinide = element.AtomicNumber === actinidesAtomicNumbers[0] - 1;
 
-	const elementRowStart = isActinide ? 9 : isLanthanide ? 8 : element.Period;
+	const elementRowStart = isActinide ? 9 + 1 : isLanthanide ? 8 + 1 : element.Period;
 
 	const emptyColSpan =
 		nextElement && +element.Group < 18 ? +(+nextElement.Group - +element.Group - 1) : null;
@@ -43,9 +43,7 @@ const Element = ({ element, nextElement }: ElementProps) => {
 			<div className={isFirstLanthanide || isFirstActinide ? 'col-span-3' : 'hidden'} />
 
 			<Card
-				className={`p-1 col-span-1 row-start-${elementRowStart} w-[74px] text-wrap text-[12px] ${
-					isLanthanide ? 'mt-0' : 'mt-0'
-				}`}
+				className={`p-1 col-span-1 row-start-${elementRowStart} w-[74px] text-wrap text-[12px]`}
 			>
 				<div>
 					<p className="flex justify-between items-center">{element.AtomicNumber}</p>
@@ -63,6 +61,8 @@ const Element = ({ element, nextElement }: ElementProps) => {
 			{/* The following div spans the empty space that is allocated for the lanthanide and actinide elements seperator. */}
 			{isLastBeforeLanthanide && <Card className="bg-green-500 min-w-[74px]" />}
 			{isLastBeforeActinide && <Card className="bg-blue-500 min-w-[74px]" />}
+
+			{isLastBeforeLanthanide && <div className="row-start-8 col-span-18 h-2" />}
 
 			{/* The following div spans the empty space between the elements in the top 3 periods. */}
 			{element.AtomicNumber <= 56 && (
