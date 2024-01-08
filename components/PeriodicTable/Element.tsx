@@ -23,7 +23,18 @@ const Element = ({ element, nextElement }: ElementProps) => {
 	const elementRowStart = isActinide ? 9 : isLanthanide ? 8 : element.Period;
 
 	const emptyColSpan =
-		nextElement && +element.Group < 18 ? +nextElement.Group - +element.Group - 1 : null;
+		nextElement && +element.Group < 18 ? +(+nextElement.Group - +element.Group - 1) : null;
+
+	// Tailwind CSS doesnt allow props to be used to build class names dynamically.
+	const colSpanVariants: { [key: number]: string } = {
+		10: 'col-span-10',
+		11: 'col-span-11',
+		12: 'col-span-12',
+		13: 'col-span-13',
+		14: 'col-span-14',
+		15: 'col-span-15',
+		16: 'col-span-16',
+	};
 
 	return (
 		<>
@@ -53,7 +64,9 @@ const Element = ({ element, nextElement }: ElementProps) => {
 
 			{/* The following div spans the empty space between the elements in the top 3 periods. */}
 			{element.AtomicNumber <= 56 && (
-				<div className={`${emptyColSpan ? `col-span-${emptyColSpan}` : 'hidden'} `} />
+				<div
+					className={`${emptyColSpan ? `${colSpanVariants[emptyColSpan]}` : 'hidden'}`}
+				/>
 			)}
 		</>
 	);
