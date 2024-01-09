@@ -3257,7 +3257,7 @@ export const elements: IElement[] = [
 		Metal: 'yes',
 		Nonmetal: '',
 		Metalloid: '',
-		Type: 'transition metal',
+		Type: 'unknown type',
 		AtomicRadius: '',
 		Electronegativity: '',
 		FirstIonization: '',
