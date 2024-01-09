@@ -1,6 +1,6 @@
 import { IElementType } from '@/types/elements';
 
-const ElementColors: { [key in IElementType]: string } = {
+export const ElementColors: { [key in IElementType]: string } = {
 	'alkali metal': 'bg-lime-200 dark:bg-lime-950 ',
 	metalloid: 'bg-yellow-200 dark:bg-yellow-950 ',
 	actinide: 'bg-orange-200 dark:bg-orange-950 ',
