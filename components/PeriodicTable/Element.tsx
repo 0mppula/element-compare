@@ -4,40 +4,25 @@ import { IElement } from '@/types/elements';
 
 interface ElementProps {
 	element: IElement;
-	nextElement: IElement | undefined;
 }
 
-const Element = ({ element, nextElement }: ElementProps) => {
-	// Element period refers to its row in the periodic table.
-	// Element group refers to its column in the periodic table.
-
+const Element = ({ element }: ElementProps) => {
 	const isLanthanide = lanthanidesAtomicNumbers.some((an) => an === element.AtomicNumber);
 	const isActinide = actinidesAtomicNumbers.some((an) => an === element.AtomicNumber);
 
-	const isFirstLanthanide = element.AtomicNumber === lanthanidesAtomicNumbers[0];
-	const isFirstActinide = element.AtomicNumber === actinidesAtomicNumbers[0];
-
-	const isLastBeforeLanthanide = element.AtomicNumber === lanthanidesAtomicNumbers[0] - 1;
-	const isLastBeforeActinide = element.AtomicNumber === actinidesAtomicNumbers[0] - 1;
-
-	const elementRowStart = isActinide ? 9 + 1 : isLanthanide ? 8 + 1 : element.Period;
-
-	const emptyColSpan =
-		nextElement && +element.Group < 18 ? +(+nextElement.Group - +element.Group - 1) : null;
-
-	// Tailwind CSS doesnt allow props to be used to build class names dynamically.
-	const colSpanVariants: { [key: number]: string } = {
-		10: 'col-span-10',
-		16: 'col-span-16',
-	};
+	const HEADER_ROW_OFFSET = 1;
+	const BOTTOM_ELEMENTS_SEPERATOR_ROW_OFFSET = 1;
+	const elementRowStart = isActinide
+		? 9 + HEADER_ROW_OFFSET + BOTTOM_ELEMENTS_SEPERATOR_ROW_OFFSET
+		: isLanthanide
+		? 8 + HEADER_ROW_OFFSET + BOTTOM_ELEMENTS_SEPERATOR_ROW_OFFSET
+		: element.Period + HEADER_ROW_OFFSET;
 
 	return (
 		<>
-			{/* The following div spans the empty space before the first element in either the 
-      lanthanide or actinide elements. */}
-			<div className={isFirstLanthanide || isFirstActinide ? 'col-span-3' : 'hidden'} />
-
-			<Card className={`p-1 col-span-1 row-start-${elementRowStart}  text-wrap text-[12px]`}>
+			<Card
+				className={`p-1 col-span-1 row-start-${elementRowStart} overflow-hidden text-[12px]`}
+			>
 				<div>
 					<p className="flex justify-between items-center">{element.AtomicNumber}</p>
 				</div>
@@ -50,19 +35,6 @@ const Element = ({ element, nextElement }: ElementProps) => {
 
 				<p className="text-center">{element.AtomicMass}</p>
 			</Card>
-
-			{/* The following div spans the empty space that is allocated for the lanthanide and actinide elements seperator. */}
-			{isLastBeforeLanthanide && <Card className="bg-green-500" />}
-			{isLastBeforeActinide && <Card className="bg-blue-500" />}
-
-			{isLastBeforeLanthanide && <div className="row-start-8 col-span-full h-2" />}
-
-			{/* The following div spans the empty space between the elements in the top 3 periods. */}
-			{element.AtomicNumber <= 56 && (
-				<div
-					className={`${emptyColSpan ? `${colSpanVariants[emptyColSpan]}` : 'hidden'}`}
-				/>
-			)}
 		</>
 	);
 };
