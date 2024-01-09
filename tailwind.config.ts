@@ -22,10 +22,6 @@ const config = {
 				'18': 'repeat(18, minmax(0, 1fr))',
 			},
 			gridColumnStart: {
-				'10': '10',
-				'11': '11',
-				'12': '12',
-				'13': '13',
 				'14': '14',
 				'15': '15',
 				'16': '16',
@@ -34,10 +30,6 @@ const config = {
 				'19': '19',
 			},
 			gridrowStart: {
-				'10': '10',
-				'11': '11',
-				'12': '12',
-				'13': '13',
 				'14': '14',
 				'15': '15',
 				'16': '16',
@@ -46,9 +38,6 @@ const config = {
 				'19': '19',
 			},
 			gridColumn: {
-				'span-10': 'span 10 / span 10',
-				'span-11': 'span 11 / span 11',
-				'span-12': 'span 12 / span 12',
 				'span-13': 'span 13 / span 13',
 				'span-14': 'span 14 / span 14',
 				'span-15': 'span 15 / span 15',

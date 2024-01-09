@@ -32,14 +32,7 @@ const PeriodicTable = () => {
 	const reOrderedElements = [...nonLanthanideActinideElements, ...lanthanideAndActinideElements];
 
 	return (
-		<div
-			style={{
-				display: 'grid',
-				gridTemplateColumns: '32px repeat(18, minmax(0, 1fr))',
-				gridTemplateRows: 'auto repeat(7, minmax(0, 1fr)) auto 1fr 1fr 1fr',
-			}}
-			className="gap-1"
-		>
+		<div className="gap-1 grid grid-cols-[32px_repeat(18,_minmax(0,_1fr))] grid-rows-[auto_repeat(7,_minmax(0,_1fr))_auto_1fr_1fr]">
 			<TableHeaders />
 
 			<TableGaps />
