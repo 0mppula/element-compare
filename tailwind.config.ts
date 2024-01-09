@@ -21,29 +21,8 @@ const config = {
 			gridTemplateColumns: {
 				'18': 'repeat(18, minmax(0, 1fr))',
 			},
-			gridColumnStart: {
-				'13': '13',
-				'14': '14',
-				'15': '15',
-				'16': '16',
-				'17': '17',
-				'18': '18',
-			},
-			gridColumnEnd: {
-				'13': '13',
-				'14': '14',
-				'15': '15',
-				'16': '16',
-				'17': '17',
-				'18': '18',
-			},
 			gridColumn: {
-				'span-13': 'span 13 / span 13',
-				'span-14': 'span 14 / span 14',
-				'span-15': 'span 15 / span 15',
 				'span-16': 'span 16 / span 16',
-				'span-17': 'span 17 / span 17',
-				'span-18': 'span 18 / span 18',
 			},
 			colors: {
 				border: 'hsl(var(--border))',

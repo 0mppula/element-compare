@@ -28,11 +28,6 @@ const Element = ({ element, nextElement }: ElementProps) => {
 	// Tailwind CSS doesnt allow props to be used to build class names dynamically.
 	const colSpanVariants: { [key: number]: string } = {
 		10: 'col-span-10',
-		11: 'col-span-11',
-		12: 'col-span-12',
-		13: 'col-span-13',
-		14: 'col-span-14',
-		15: 'col-span-15',
 		16: 'col-span-16',
 	};
 
@@ -60,7 +55,7 @@ const Element = ({ element, nextElement }: ElementProps) => {
 			{isLastBeforeLanthanide && <Card className="bg-green-500" />}
 			{isLastBeforeActinide && <Card className="bg-blue-500" />}
 
-			{isLastBeforeLanthanide && <div className="row-start-8 col-span-18 h-2" />}
+			{isLastBeforeLanthanide && <div className="row-start-8 col-span-full h-2" />}
 
 			{/* The following div spans the empty space between the elements in the top 3 periods. */}
 			{element.AtomicNumber <= 56 && (
