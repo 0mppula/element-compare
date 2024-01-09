@@ -18,9 +18,20 @@ const Element = ({ element }: ElementProps) => {
 		? 8 + HEADER_ROW_OFFSET + BOTTOM_ELEMENTS_SEPERATOR_ROW_OFFSET
 		: element.Period + HEADER_ROW_OFFSET;
 
+	// Tailwind CSS doesnt allow props to be used to build class names dynamically.
+	const colSpanVariants: { [key: number]: string } = {
+		10: 'col-span-10',
+		11: 'col-span-11',
+		12: 'col-span-12',
+		13: 'col-span-13',
+		14: 'col-span-14',
+		15: 'col-span-15',
+		16: 'col-span-16',
+	};
+
 	return (
 		<Card
-			className={`p-1 col-span-1 row-start-2-${elementRowStart} overflow-hidden text-[12px]`}
+			className={`p-1 col-span-1 ${colSpanVariants[elementRowStart]} overflow-hidden text-[12px]`}
 		>
 			<div>
 				<p className="flex justify-between items-center">{element.AtomicNumber}</p>
