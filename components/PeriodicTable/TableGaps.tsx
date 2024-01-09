@@ -1,4 +1,4 @@
-import { ElementColors } from '@/constants';
+import { ElementColorsDark, ElementColorsLight } from '@/constants';
 import { Card } from '../ui/card';
 
 interface TableGapsProps {}
@@ -11,10 +11,14 @@ const TableGaps = ({}: TableGapsProps) => {
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (
-		<Card className={`${ElementColors['lanthanide']} col-start-4 row-start-7`} />
+		<Card
+			className={`${ElementColorsLight['lanthanide']} ${ElementColorsDark['lanthanide']} col-start-4 row-start-7`}
+		/>
 	);
 	const ActinideSeperatorCard = (
-		<Card className={`${ElementColors['actinide']} col-start-4 row-start-8`} />
+		<Card
+			className={`${ElementColorsLight['actinide']} ${ElementColorsDark['actinide']} col-start-4 row-start-8`}
+		/>
 	);
 
 	// Creates a small gap between the bottom 2 rows of the elements.

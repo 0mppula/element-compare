@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { ElementColors } from '@/constants';
+import { ElementColorsDark, ElementColorsLight } from '@/constants';
 import { IElement } from '@/types/elements';
 
 interface ElementProps {
@@ -34,9 +34,9 @@ const Element = ({ element }: ElementProps) => {
 
 	return (
 		<Card
-			className={`p-1 col-span-1 ${ElementColors[element.Type]} ${
-				ElementRowStarts[elementRowStart]
-			} overflow-hidden text-[12px]`}
+			className={`p-1 col-span-1 ${ElementColorsLight[element.Type]} ${
+				ElementColorsDark[element.Type]
+			} ${ElementRowStarts[elementRowStart]} overflow-hidden text-[12px]`}
 		>
 			<div>
 				<p className="flex justify-between items-center">{element.AtomicNumber}</p>
