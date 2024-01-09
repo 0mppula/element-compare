@@ -1,3 +1,4 @@
+import { ElementColors } from '@/constants';
 import { Card } from '../ui/card';
 
 interface TableGapsProps {}
@@ -9,8 +10,12 @@ const TableGaps = ({}: TableGapsProps) => {
 	const MagnesiumAluminiumGap = <div className="col-span-10 col-start-4 row-start-4" />;
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
-	const LathanideSeperatorCard = <Card className="bg-green-500 col-start-4 row-start-7" />;
-	const ActinideSeperatorCard = <Card className="bg-blue-500 col-start-4 row-start-8" />;
+	const LathanideSeperatorCard = (
+		<Card className={`${ElementColors['lanthanide']} col-start-4 row-start-7`} />
+	);
+	const ActinideSeperatorCard = (
+		<Card className={`${ElementColors['actinide']} col-start-4 row-start-8`} />
+	);
 
 	// Creates a small gap between the bottom 2 rows of the elements.
 	const BottomElementsGap = <div className="row-start-9 col-span-19 h-1" />;

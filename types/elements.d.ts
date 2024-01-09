@@ -14,7 +14,7 @@ export interface IElement {
 	Metal: string;
 	Nonmetal: string;
 	Metalloid: string;
-	Type: string;
+	Type: IElementType;
 	AtomicRadius: number | string;
 	Electronegativity: number | string;
 	FirstIonization: number | string;
@@ -28,3 +28,15 @@ export interface IElement {
 	NumberofShells: number;
 	NumberofValence: number | string;
 }
+
+export type IElementType =
+	| 'alkali metal'
+	| 'metalloid'
+	| 'actinide'
+	| 'alkali earth metal'
+	| 'reactive non-metal'
+	| 'unknown type'
+	| 'transition metal'
+	| 'noble gas'
+	| 'post-transition metal'
+	| 'lanthanide';

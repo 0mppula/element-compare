@@ -1,5 +1,4 @@
-import elements from '@/assets/data/elements.json';
-import { actinidesAtomicNumbers, lanthanidesAtomicNumbers } from '@/constants';
+import { elements } from '@/assets/data/elements';
 import { useMemo } from 'react';
 import Element from './Element';
 import TableGaps from './TableGaps';
@@ -10,23 +9,13 @@ const PeriodicTable = () => {
 	// Element group refers to its column in the periodic table.
 
 	const nonLanthanideActinideElements = useMemo(
-		() =>
-			elements.filter(
-				(el) =>
-					!lanthanidesAtomicNumbers.some((an) => an === el.AtomicNumber) &&
-					!actinidesAtomicNumbers.some((an) => an === el.AtomicNumber)
-			),
-		[elements, lanthanidesAtomicNumbers, actinidesAtomicNumbers]
+		() => elements.filter((el) => el.Type !== 'lanthanide' && el.Type !== 'actinide'),
+		[elements]
 	);
 
 	const lanthanideAndActinideElements = useMemo(
-		() =>
-			elements.filter(
-				(el) =>
-					lanthanidesAtomicNumbers.some((an) => an === el.AtomicNumber) ||
-					actinidesAtomicNumbers.some((an) => an === el.AtomicNumber)
-			),
-		[elements, lanthanidesAtomicNumbers, actinidesAtomicNumbers]
+		() => elements.filter((el) => el.Type === 'lanthanide' || el.Type === 'actinide'),
+		[elements]
 	);
 
 	const reOrderedElements = [...nonLanthanideActinideElements, ...lanthanideAndActinideElements];

@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { actinidesAtomicNumbers, lanthanidesAtomicNumbers } from '@/constants';
+import { ElementColors } from '@/constants';
 import { IElement } from '@/types/elements';
 
 interface ElementProps {
@@ -7,8 +7,8 @@ interface ElementProps {
 }
 
 const Element = ({ element }: ElementProps) => {
-	const isLanthanide = lanthanidesAtomicNumbers.some((an) => an === element.AtomicNumber);
-	const isActinide = actinidesAtomicNumbers.some((an) => an === element.AtomicNumber);
+	const isActinide = element.Type === 'actinide';
+	const isLanthanide = element.Type === 'lanthanide';
 
 	const HEADER_ROW_OFFSET = 1;
 	const BOTTOM_ELEMENTS_SEPERATOR_ROW_OFFSET = 1;
@@ -34,7 +34,9 @@ const Element = ({ element }: ElementProps) => {
 
 	return (
 		<Card
-			className={`p-1 col-span-1 ${ElementRowStarts[elementRowStart]} overflow-hidden text-[12px]`}
+			className={`p-1 col-span-1 ${ElementColors[element.Type]} ${
+				ElementRowStarts[elementRowStart]
+			} overflow-hidden text-[12px]`}
 		>
 			<div>
 				<p className="flex justify-between items-center">{element.AtomicNumber}</p>

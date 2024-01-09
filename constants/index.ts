@@ -1,6 +1,14 @@
-export const lanthanidesAtomicNumbers = [
-	57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
-];
-export const actinidesAtomicNumbers = [
-	89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103,
-];
+import { IElementType } from '@/types/elements';
+
+export const ElementColors: { [key in IElementType]: string } = {
+	'alkali earth metal': 'bg-blue-200',
+	'alkali metal': 'bg-blue-300',
+	'noble gas': 'bg-blue-400',
+	'post-transition metal': 'bg-blue-500',
+	'reactive non-metal': 'bg-blue-600',
+	'transition metal': 'bg-blue-700',
+	'unknown type': 'bg-blue-800',
+	actinide: 'bg-blue-900',
+	lanthanide: 'bg-blue-100',
+	metalloid: 'bg-blue-200',
+};
