@@ -1,9 +1,9 @@
 import { elements } from '@/assets/data/elements';
 import { useMemo } from 'react';
 import Element from './Element';
+import Legend from './Legend';
 import TableGaps from './TableGaps';
 import TableHeaders from './TableHeaders';
-import Legend from './Legend';
 
 const PeriodicTable = () => {
 	// Element period refers to its row in the periodic table.

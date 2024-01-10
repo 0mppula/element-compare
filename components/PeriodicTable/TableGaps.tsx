@@ -1,8 +1,8 @@
 'use client';
 
-import { IElementType } from '@/types/elements';
-import { Card } from '../ui/card';
+import { ElementTypeColors, ElementTypeHighlightClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
+import { Card } from '../ui/card';
 
 interface TableGapsProps {}
 
@@ -13,21 +13,6 @@ const TableGaps = ({}: TableGapsProps) => {
 	const HydrogenHeliumGap = <div className="col-span-16 col-start-3 row-start-2" />;
 	const BerylliumBoronGap = <div className="col-span-10 col-start-4 row-start-3" />;
 	const MagnesiumAluminiumGap = <div className="col-span-10 col-start-4 row-start-4" />;
-
-	const ElementTypeColors: Pick<{ [key in IElementType]: string }, 'actinide' | 'lanthanide'> = {
-		actinide: 'bg-orange-400 dark:bg-orange-900',
-		lanthanide: 'bg-sky-400 dark:bg-sky-800',
-	};
-
-	const ElementTypeHighlightClasses: Pick<
-		{ [key in IElementType]: string },
-		'actinide' | 'lanthanide'
-	> = {
-		actinide:
-			'before:to-orange-400 before:dark:to-orange-900 after:bg-orange-400 after:dark:bg-orange-900',
-		lanthanide:
-			'before:to-sky-400 before:dark:to-sky-800 after:bg-sky-400 after:dark:bg-sky-800',
-	};
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (

@@ -1,8 +1,8 @@
 'use client';
-import { IElementType } from '@/types/elements';
-import { Button } from '../ui/button';
-import { Squircle } from 'lucide-react';
 import useElementsStore from '@/hooks/useElementsStore';
+import { IElementType } from '@/types/elements';
+import { Squircle } from 'lucide-react';
+import { Button } from '../ui/button';
 
 const Legend = () => {
 	const { highlightedElementsType, setHighlightedElementsType } = useElementsStore();
@@ -20,7 +20,7 @@ const Legend = () => {
 		'unknown type',
 	];
 
-	const ElementTypeColors: { [key in IElementType]: string } = {
+	const ElementTypeLegendClasses: { [key in IElementType]: string } = {
 		'alkali metal': 'fill-lime-400 dark:fill-lime-800 text-lime-400 dark:text-lime-800',
 		metalloid: 'fill-yellow-400 dark:fill-yellow-900 text-yellow-400 dark:text-yellow-900',
 		actinide: 'fill-orange-400 dark:fill-orange-900 text-orange-400 dark:text-orange-900',
@@ -66,7 +66,7 @@ const Legend = () => {
 					size="xs"
 				>
 					<span>{pluralizeElement(type)}</span>
-					<Squircle className={`w-3 h-3 ${ElementTypeColors[type]}`} />
+					<Squircle className={`w-3 h-3 ${ElementTypeLegendClasses[type]}`} />
 				</Button>
 			))}
 		</div>
