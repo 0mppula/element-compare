@@ -1,9 +1,14 @@
+'use client';
+
 import { IElementType } from '@/types/elements';
 import { Card } from '../ui/card';
+import useElementsStore from '@/hooks/useElementsStore';
 
 interface TableGapsProps {}
 
 const TableGaps = ({}: TableGapsProps) => {
+	const { highlightedElementsType } = useElementsStore();
+
 	// Span the empty space between the elements in the top 3 periods.
 	const HydrogenHeliumGap = <div className="col-span-16 col-start-3 row-start-2" />;
 	const BerylliumBoronGap = <div className="col-span-10 col-start-4 row-start-3" />;
@@ -16,10 +21,18 @@ const TableGaps = ({}: TableGapsProps) => {
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (
-		<Card className={`${ElementTypeColors['lanthanide']} col-start-4 row-start-7`} />
+		<Card
+			className={`${ElementTypeColors['lanthanide']} ${
+				highlightedElementsType === 'lanthanide' ? '' : ''
+			} col-start-4 row-start-7`}
+		/>
 	);
 	const ActinideSeperatorCard = (
-		<Card className={`${ElementTypeColors['actinide']} col-start-4 row-start-8`} />
+		<Card
+			className={`${ElementTypeColors['actinide']} ${
+				highlightedElementsType === 'actinide' ? 'border-red-500' : 'border-transparent'
+			} col-start-4 row-start-8`}
+		/>
 	);
 
 	// Creates a small gap between the bottom 2 rows of the elements.

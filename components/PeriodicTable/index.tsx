@@ -28,7 +28,7 @@ const PeriodicTable = () => {
 			<TableGaps />
 
 			{reOrderedElements.map((element) => (
-				<Element key={`${element.Element}`} element={element} />
+				<Element key={`element-card-${element.Element}`} element={element} />
 			))}
 
 			<Legend />

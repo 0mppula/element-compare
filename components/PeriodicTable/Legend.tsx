@@ -53,7 +53,7 @@ const Legend = () => {
 					size="xs"
 				>
 					<span>{type}</span>
-					<Squircle className={`w-3 h-3 ${ElementTypeColors[type]} text-red-500`} />
+					<Squircle className={`w-3 h-3 ${ElementTypeColors[type]}`} />
 				</Button>
 			))}
 		</div>
