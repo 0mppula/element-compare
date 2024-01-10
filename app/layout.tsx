@@ -1,9 +1,9 @@
+import Nav from '@/components/Nav';
+import Providers from '@/components/providers';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Source_Code_Pro } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import Nav from '@/components/Nav';
 
 const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
 
@@ -21,11 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					'text-neutral-900 dark:text-neutral-50 bg-neutral-100 dark:bg-neutral-950 antialiased'
 				)}`}
 			>
-				<ThemeProvider attribute="class" defaultTheme="system">
+				<Providers>
 					<Nav />
 
 					{children}
-				</ThemeProvider>
+				</Providers>
 			</body>
 		</html>
 	);
