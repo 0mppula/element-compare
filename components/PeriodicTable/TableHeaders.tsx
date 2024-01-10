@@ -6,7 +6,7 @@ function TableHeaders() {
 	const PeriodHeaders = useMemo(
 		() =>
 			Array.from({ length: 7 }, (_, i) => (
-				<Tooltip delayDuration={0} key={`period-header-${i + 1}`}>
+				<Tooltip key={`period-header-${i + 1}`}>
 					<TooltipTrigger
 						className={`w-8 text-[12px] flex items-center justify-center col-start-1 row-start-${
 							i + 2
@@ -26,7 +26,7 @@ function TableHeaders() {
 	const GroupHeaders = useMemo(
 		() =>
 			Array.from({ length: 18 }, (_, i) => (
-				<Tooltip delayDuration={0} key={`group-header-${i + 1}`}>
+				<Tooltip key={`group-header-${i + 1}`}>
 					<TooltipTrigger
 						className={`h-8 text-[12px] flex items-center justify-center col-start-${
 							i + 2

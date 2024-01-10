@@ -1,4 +1,5 @@
 import { Card } from '@/components/ui/card';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { IElement, IElementType } from '@/types/elements';
 
 interface ElementProps {
@@ -45,23 +46,30 @@ const Element = ({ element }: ElementProps) => {
 	};
 
 	return (
-		<Card
-			className={`p-1 col-span-1 ${ElementColors[element.Type]} ${
-				ElementRowStarts[elementRowStart]
-			} overflow-hidden text-[12px]`}
-		>
-			<div>
-				<p className="flex justify-between items-center">{element.AtomicNumber}</p>
-			</div>
+		<Tooltip>
+			<TooltipTrigger asChild>
+				<Card
+					className={`p-1 col-span-1 ${ElementColors[element.Type]} ${
+						ElementRowStarts[elementRowStart]
+					} overflow-hidden text-[12px]`}
+				>
+					<div>
+						<p className="flex justify-between items-center">{element.AtomicNumber}</p>
+					</div>
 
-			<h2 className="text-center scroll-m-2 text-xl font-semibold tracking-tight">
-				{element.Symbol}
-			</h2>
+					<h2 className="text-center scroll-m-2 text-xl font-semibold tracking-tight">
+						{element.Symbol}
+					</h2>
 
-			<p className="text-center text-ellipsis overflow-hidden">{element.Element}</p>
+					<p className="text-center text-ellipsis overflow-hidden">{element.Element}</p>
 
-			<p className="text-center">{element.AtomicMass}</p>
-		</Card>
+					<p className="text-center">{element.AtomicMass}</p>
+				</Card>
+			</TooltipTrigger>
+			<TooltipContent>
+				<p>{element.Element}</p>
+			</TooltipContent>
+		</Tooltip>
 	);
 };
 
