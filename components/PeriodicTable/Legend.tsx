@@ -8,16 +8,16 @@ const Legend = () => {
 	const { highlightedElementsType, setHighlightedElementsType } = useElementsStore();
 
 	const elementTypes: IElementType[] = [
-		'alkali metal',
-		'metalloid',
 		'actinide',
 		'alkali earth metal',
-		'reactive non-metal',
-		'unknown type',
-		'transition metal',
+		'alkali metal',
+		'lanthanide',
+		'metalloid',
 		'noble gas',
 		'post-transition metal',
-		'lanthanide',
+		'reactive non-metal',
+		'transition metal',
+		'unknown type',
 	];
 
 	const ElementTypeColors: { [key in IElementType]: string } = {
@@ -40,19 +40,32 @@ const Legend = () => {
 		setHighlightedElementsType(type);
 	};
 
+	const pluralizeElement = (type: IElementType) => {
+		if (type === 'alkali metal') return 'Alkali metals';
+		if (type === 'metalloid') return 'Metalloids';
+		if (type === 'actinide') return 'Actinides';
+		if (type === 'alkali earth metal') return 'Alkali earth metals';
+		if (type === 'reactive non-metal') return 'Reactive non-metals';
+		if (type === 'unknown type') return 'Unknown types';
+		if (type === 'transition metal') return 'Transition metals';
+		if (type === 'noble gas') return 'Noble gases';
+		if (type === 'post-transition metal') return 'Post-transition metals';
+		if (type === 'lanthanide') return 'Lanthanides';
+	};
+
 	return (
 		<div className="row-start-10 row-span-2 col-start-1 col-span-4 flex gap-1 flex-wrap p-1">
 			{elementTypes.map((type: IElementType) => (
 				<Button
 					key={`element-toggle-${type}`}
 					onClick={() => handleHighLightToggle(type)}
-					className={`text-[12px] flex justify-center items-center gap-1 leading-3 hover:underline capitalize ${
+					className={`text-[12px] flex justify-center items-center gap-1 leading-3 hover:underline ${
 						type === highlightedElementsType ? 'font-extrabold' : ''
 					}`}
 					variant="ghost"
 					size="xs"
 				>
-					<span>{type}</span>
+					<span>{pluralizeElement(type)}</span>
 					<Squircle className={`w-3 h-3 ${ElementTypeColors[type]}`} />
 				</Button>
 			))}
