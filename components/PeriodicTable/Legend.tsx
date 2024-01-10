@@ -1,9 +1,11 @@
+'use client';
 import { IElementType } from '@/types/elements';
 import { Button } from '../ui/button';
 import { Squircle } from 'lucide-react';
+import useElementsStore from '@/hooks/useElementsStore';
 
 const Legend = () => {
-	const highlighted = false;
+	const { highlightedElementsType, setHighlightedElementsType } = useElementsStore();
 
 	const elementTypes: IElementType[] = [
 		'alkali metal',
@@ -34,13 +36,18 @@ const Legend = () => {
 		lanthanide: 'fill-sky-400 dark:fill-sky-800 text-sky-400 dark:text-sky-800',
 	};
 
+	const handleHighLightToggle = (type: IElementType) => {
+		setHighlightedElementsType(type);
+	};
+
 	return (
 		<div className="row-start-10 row-span-2 col-start-1 col-span-4 flex gap-1 flex-wrap p-1">
 			{elementTypes.map((type: IElementType) => (
 				<Button
 					key={`element-toggle-${type}`}
+					onClick={() => handleHighLightToggle(type)}
 					className={`text-[12px] flex justify-center items-center gap-1 leading-3 hover:underline capitalize ${
-						highlighted ? 'font-bold' : ''
+						type === highlightedElementsType ? 'font-extrabold' : ''
 					}`}
 					variant="ghost"
 					size="xs"
