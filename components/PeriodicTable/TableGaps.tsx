@@ -9,17 +9,17 @@ const TableGaps = ({}: TableGapsProps) => {
 	const BerylliumBoronGap = <div className="col-span-10 col-start-4 row-start-3" />;
 	const MagnesiumAluminiumGap = <div className="col-span-10 col-start-4 row-start-4" />;
 
-	const ElementColors: Pick<{ [key in IElementType]: string }, 'actinide' | 'lanthanide'> = {
+	const ElementTypeColors: Pick<{ [key in IElementType]: string }, 'actinide' | 'lanthanide'> = {
 		actinide: 'bg-orange-200 dark:bg-orange-950',
 		lanthanide: 'bg-sky-200 dark:bg-sky-950',
 	};
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (
-		<Card className={`${ElementColors['lanthanide']} col-start-4 row-start-7`} />
+		<Card className={`${ElementTypeColors['lanthanide']} col-start-4 row-start-7`} />
 	);
 	const ActinideSeperatorCard = (
-		<Card className={`${ElementColors['actinide']} col-start-4 row-start-8`} />
+		<Card className={`${ElementTypeColors['actinide']} col-start-4 row-start-8`} />
 	);
 
 	// Creates a small gap between the bottom 2 rows of the elements.

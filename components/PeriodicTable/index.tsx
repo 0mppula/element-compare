@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import Element from './Element';
 import TableGaps from './TableGaps';
 import TableHeaders from './TableHeaders';
+import Legend from './Legend';
 
 const PeriodicTable = () => {
 	// Element period refers to its row in the periodic table.
@@ -29,6 +30,8 @@ const PeriodicTable = () => {
 			{reOrderedElements.map((element) => (
 				<Element key={`${element.Element}`} element={element} />
 			))}
+
+			<Legend />
 		</div>
 	);
 };
