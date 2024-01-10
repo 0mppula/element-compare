@@ -3,6 +3,8 @@ import { Button } from '../ui/button';
 import { Squircle } from 'lucide-react';
 
 const Legend = () => {
+	const highlighted = false;
+
 	const elementTypes: IElementType[] = [
 		'alkali metal',
 		'metalloid',
@@ -17,19 +19,19 @@ const Legend = () => {
 	];
 
 	const ElementTypeColors: { [key in IElementType]: string } = {
-		'alkali metal': 'fill-lime-200 dark:fill-lime-950 text-lime-200 dark:text-lime-950',
-		metalloid: 'fill-yellow-200 dark:fill-yellow-950 text-yellow-200 dark:text-yellow-950',
-		actinide: 'fill-orange-200 dark:fill-orange-950 text-orange-200 dark:text-orange-950',
-		'alkali earth metal': 'fill-red-200 dark:fill-red-950 text-red-200 dark:text-red-950',
-		'reactive non-metal': 'fill-blue-200 dark:fill-blue-950 text-blue-200 dark:text-blue-950',
-		'unknown type': 'fill-gray-200 dark:fill-gray-800 text-gray-200 dark:text-gray-800',
+		'alkali metal': 'fill-lime-400 dark:fill-lime-800 text-lime-400 dark:text-lime-800',
+		metalloid: 'fill-yellow-400 dark:fill-yellow-900 text-yellow-400 dark:text-yellow-900',
+		actinide: 'fill-orange-400 dark:fill-orange-900 text-orange-400 dark:text-orange-900',
+		'alkali earth metal': 'fill-red-400 dark:fill-red-800 text-red-400 dark:text-red-800',
+		'reactive non-metal': 'fill-blue-400 dark:fill-blue-800 text-blue-400 dark:text-blue-800',
+		'unknown type': 'fill-gray-400 dark:fill-gray-700 text-gray-400 dark:text-gray-700',
 		'transition metal':
-			'fill-violet-200 dark:fill-violet-950 text-violet-200 dark:text-violet-950',
+			'fill-violet-400 dark:fill-violet-800 text-violet-400 dark:text-violet-800',
 		'noble gas':
-			'fill-fuchsia-200 dark:fill-fuchsia-950 text-fuchsia-200 dark:text-fuchsia-950',
+			'fill-fuchsia-400 dark:fill-fuchsia-800 text-fuchsia-400 dark:text-fuchsia-800',
 		'post-transition metal':
-			'fill-teal-200 dark:fill-teal-950 text-teal-200 dark:text-teal-950',
-		lanthanide: 'fill-sky-200 dark:fill-sky-950 text-sky-200 dark:text-sky-950',
+			'fill-teal-400 dark:fill-teal-800 text-teal-400 dark:text-teal-800',
+		lanthanide: 'fill-sky-400 dark:fill-sky-800 text-sky-400 dark:text-sky-800',
 	};
 
 	return (
@@ -37,7 +39,9 @@ const Legend = () => {
 			{elementTypes.map((type: IElementType) => (
 				<Button
 					key={`element-toggle-${type}`}
-					className="text-[12px] flex justify-center items-center gap-1 leading-3"
+					className={`text-[12px] flex justify-center items-center gap-1 leading-3 hover:underline capitalize ${
+						highlighted ? 'font-bold' : ''
+					}`}
 					variant="ghost"
 					size="xs"
 				>

@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body
 				className={`${cn(
 					sourceCodePro.className,
-					'text-neutral-900 dark:text-neutral-50 bg-neutral-100 dark:bg-neutral-950 antialiased'
+					'bg-neutral-100 dark:bg-neutral-950 antialiased'
 				)}`}
 			>
 				<Providers>

@@ -10,8 +10,8 @@ const TableGaps = ({}: TableGapsProps) => {
 	const MagnesiumAluminiumGap = <div className="col-span-10 col-start-4 row-start-4" />;
 
 	const ElementTypeColors: Pick<{ [key in IElementType]: string }, 'actinide' | 'lanthanide'> = {
-		actinide: 'bg-orange-200 dark:bg-orange-950',
-		lanthanide: 'bg-sky-200 dark:bg-sky-950',
+		actinide: 'bg-orange-400 dark:bg-orange-900',
+		lanthanide: 'bg-sky-400 dark:bg-sky-800',
 	};
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
