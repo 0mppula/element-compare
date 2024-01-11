@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementTypeColors, ElementTypeHighlightClasses } from '@/constants';
+import { ElementTypeColors, SelectedElementHighlightClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { IElement } from '@/types/elements';
 import React from 'react';
@@ -54,9 +54,9 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 			className={`border-none p-1 col-span-1 ${ElementTypeColors[element.Type]} ${
 				ElementRowStarts[elementRowStart]
 			} text-[12px] overflow-hidden ${
-				isHighlighted || isSelected
-					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${
-							ElementTypeHighlightClasses[element.Type]
+				isSelected
+					? `relative before:absolute before:w-[36px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[18px] before:animate-spin after:absolute after:inset-[0.26666666666666666666666666666667em] after:rounded-md ${
+							SelectedElementHighlightClasses[element.Type]
 					  }`
 					: ''
 			}`}

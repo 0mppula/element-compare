@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementTypeColors, ElementTypeHighlightClasses } from '@/constants';
+import { ElementTypeColors, SelectedElementHighlightClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { Card } from '../ui/card';
 
@@ -19,7 +19,7 @@ const TableGaps = ({}: TableGapsProps) => {
 		<Card
 			className={`overflow-hidden ${ElementTypeColors['lanthanide']} ${
 				highlightedElementsType === 'lanthanide'
-					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${ElementTypeHighlightClasses['lanthanide']}`
+					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${SelectedElementHighlightClasses['lanthanide']}`
 					: ''
 			} col-start-4 row-start-7`}
 		/>
@@ -29,7 +29,7 @@ const TableGaps = ({}: TableGapsProps) => {
 		<Card
 			className={`overflow-hidden ${ElementTypeColors['actinide']} ${
 				highlightedElementsType === 'actinide'
-					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${ElementTypeHighlightClasses['actinide']}`
+					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${SelectedElementHighlightClasses['actinide']}`
 					: ''
 			} col-start-4 row-start-8`}
 		/>
