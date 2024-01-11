@@ -14,12 +14,12 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const {
 		highlightedElementsType,
 		setHighlightedElementsType,
-		selectedElementAtomicNumbers,
-		setSelectedElementAtomicNumbers,
+		selectedElements,
+		setSelectedElements,
 	} = useElementsStore();
 
 	const isHighlighted = element.Type === highlightedElementsType;
-	const isSelected = selectedElementAtomicNumbers?.includes(element.AtomicNumber);
+	const isSelected = selectedElements.some((el) => el.AtomicNumber === element.AtomicNumber);
 	const isActinide = element.Type === 'actinide';
 	const isLanthanide = element.Type === 'lanthanide';
 
@@ -50,8 +50,8 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const handleSelectElement = () => {
 		setHighlightedElementsType(null);
 
-		if (selectedElementAtomicNumbers?.length < 2) {
-			setSelectedElementAtomicNumbers((prev) => [...prev, element.AtomicNumber]);
+		if (selectedElements?.length < 2) {
+			setSelectedElements((prev) => [...prev, element]);
 		}
 	};
 
