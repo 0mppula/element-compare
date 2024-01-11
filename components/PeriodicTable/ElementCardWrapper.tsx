@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementTypeColors, SelectedElementHighlightClasses } from '@/constants';
+import { ElementTypeColors, SelectedElementAfterBgClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { IElement } from '@/types/elements';
 import React from 'react';
@@ -14,14 +14,18 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const {
 		highlightedElementsType,
 		setHighlightedElementsType,
-		selectedElementAtomicNumber,
-		setSelectedElementAtomicNumber,
+		selectedElementAtomicNumbers,
+		setSelectedElementAtomicNumbers,
 	} = useElementsStore();
 
 	const isHighlighted = element.Type === highlightedElementsType;
-	const isSelected = element.AtomicNumber === selectedElementAtomicNumber;
+	const isSelected = selectedElementAtomicNumbers?.includes(element.AtomicNumber);
 	const isActinide = element.Type === 'actinide';
 	const isLanthanide = element.Type === 'lanthanide';
+
+	const isSelectedClasses = `before:absolute before:w-[36px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[18px] before:animate-spin-slow after:absolute after:inset-[1.6px] after:rounded-md ${
+		SelectedElementAfterBgClasses[element.Type]
+	}`;
 
 	const HEADER_ROW_OFFSET = 1;
 	const BOTTOM_ELEMENTS_SEPERATOR_ROW_OFFSET = 1;
@@ -45,7 +49,10 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 
 	const handleSelectElement = () => {
 		setHighlightedElementsType(null);
-		setSelectedElementAtomicNumber(element.AtomicNumber);
+
+		if (selectedElementAtomicNumbers?.length < 2) {
+			setSelectedElementAtomicNumbers((prev) => [...prev, element.AtomicNumber]);
+		}
 	};
 
 	return (
@@ -53,10 +60,10 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 			onClick={handleSelectElement}
 			className={`border-none p-1 col-span-1 ${ElementTypeColors[element.Type]} ${
 				ElementRowStarts[elementRowStart]
-			} text-[12px] overflow-hidden ${
-				isSelected
-					? `relative before:absolute before:w-[36px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[18px] before:animate-spin after:absolute after:inset-[0.26666666666666666666666666666667em] after:rounded-md ${
-							SelectedElementHighlightClasses[element.Type]
+			} text-[12px] overflow-hidden relative ${isSelected ? isSelectedClasses : ''} ${
+				isHighlighted
+					? `before:absolute before:w-[80px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[-3px] after:absolute after:inset-[1.6px] after:rounded-md ${
+							SelectedElementAfterBgClasses[element.Type]
 					  }`
 					: ''
 			}`}

@@ -1,12 +1,10 @@
 'use client';
 
-import { ElementTypeColors, SelectedElementHighlightClasses } from '@/constants';
+import { ElementTypeColors, SelectedElementAfterBgClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { Card } from '../ui/card';
 
-interface TableGapsProps {}
-
-const TableGaps = ({}: TableGapsProps) => {
+const TableGaps = () => {
 	const { highlightedElementsType } = useElementsStore();
 
 	// Span the empty space between the elements in the top 3 periods.
@@ -17,9 +15,9 @@ const TableGaps = ({}: TableGapsProps) => {
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (
 		<Card
-			className={`overflow-hidden ${ElementTypeColors['lanthanide']} ${
+			className={`overflow-hidden relative ${ElementTypeColors['lanthanide']} ${
 				highlightedElementsType === 'lanthanide'
-					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${SelectedElementHighlightClasses['lanthanide']}`
+					? `before:absolute before:w-[80px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[-3px] after:absolute after:inset-[1.6px] after:rounded-md ${SelectedElementAfterBgClasses['lanthanide']}`
 					: ''
 			} col-start-4 row-start-7`}
 		/>
@@ -27,9 +25,9 @@ const TableGaps = ({}: TableGapsProps) => {
 
 	const ActinideSeperatorCard = (
 		<Card
-			className={`overflow-hidden ${ElementTypeColors['actinide']} ${
+			className={`overflow-hidden relative ${ElementTypeColors['actinide']} ${
 				highlightedElementsType === 'actinide'
-					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${SelectedElementHighlightClasses['actinide']}`
+					? `before:absolute before:w-[80px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[-3px] after:absolute after:inset-[1.6px] after:rounded-md ${SelectedElementAfterBgClasses['actinide']}`
 					: ''
 			} col-start-4 row-start-8`}
 		/>

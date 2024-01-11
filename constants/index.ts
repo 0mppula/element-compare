@@ -13,7 +13,7 @@ export const ElementTypeColors: { [key in IElementType]: string } = {
 	lanthanide: 'bg-sky-400 dark:bg-sky-800',
 };
 
-export const SelectedElementHighlightClasses: { [key in IElementType]: string } = {
+export const SelectedElementAfterBgClasses: { [key in IElementType]: string } = {
 	'alkali metal': 'after:bg-lime-400 after:dark:bg-lime-800',
 	metalloid: 'after:bg-yellow-400 after:dark:bg-yellow-900',
 	actinide: 'after:bg-orange-400 after:dark:bg-orange-900',
