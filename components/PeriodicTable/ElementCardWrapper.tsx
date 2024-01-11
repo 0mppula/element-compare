@@ -11,9 +11,15 @@ interface ElementCardWrapperProps extends React.ComponentProps<typeof Card> {
 }
 
 const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
-	const { highlightedElementsType } = useElementsStore();
+	const {
+		highlightedElementsType,
+		setHighlightedElementsType,
+		selectedElementAtomicNumber,
+		setSelectedElementAtomicNumber,
+	} = useElementsStore();
 
 	const isHighlighted = element.Type === highlightedElementsType;
+	const isSelected = element.AtomicNumber === selectedElementAtomicNumber;
 	const isActinide = element.Type === 'actinide';
 	const isLanthanide = element.Type === 'lanthanide';
 
@@ -37,12 +43,18 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 		11: 'row-start-11',
 	};
 
+	const handleSelectElement = () => {
+		setHighlightedElementsType(null);
+		setSelectedElementAtomicNumber(element.AtomicNumber);
+	};
+
 	return (
 		<Card
+			onClick={handleSelectElement}
 			className={`border-none p-1 col-span-1 ${ElementTypeColors[element.Type]} ${
 				ElementRowStarts[elementRowStart]
 			} text-[12px] overflow-hidden ${
-				isHighlighted
+				isHighlighted || isSelected
 					? `relative before:absolute before:w-[120px] before:h-[120px] before:bg-gradient-to-r before:from-neutral-950 before:dark:from-neutral-50 before:inset-y-[-10px] before:inset-x-[-25px] before:animate-spin after:absolute after:inset-[2px] after:rounded-md ${
 							ElementTypeHighlightClasses[element.Type]
 					  }`

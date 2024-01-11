@@ -5,7 +5,8 @@ import { Squircle } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const Legend = () => {
-	const { highlightedElementsType, setHighlightedElementsType } = useElementsStore();
+	const { highlightedElementsType, setHighlightedElementsType, setSelectedElementAtomicNumber } =
+		useElementsStore();
 
 	const elementTypes: IElementType[] = [
 		'actinide',
@@ -38,6 +39,7 @@ const Legend = () => {
 
 	const handleHighLightToggle = (type: IElementType) => {
 		setHighlightedElementsType(type);
+		setSelectedElementAtomicNumber(null);
 	};
 
 	const pluralizeElement = (type: IElementType) => {
