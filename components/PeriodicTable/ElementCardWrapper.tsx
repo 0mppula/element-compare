@@ -23,7 +23,14 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const isActinide = element.Type === 'actinide';
 	const isLanthanide = element.Type === 'lanthanide';
 
-	const isSelectedClasses = `before:absolute before:w-[36px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[18px] before:animate-spin-slow after:absolute after:inset-[1.6px] after:rounded-md ${
+	const synchronizedAnimation =
+		isSelected && selectedElements.length !== 2
+			? 'before:animate-spin'
+			: isSelected && selectedElements.length === 2
+			? 'before:animate-spin2'
+			: '';
+
+	const isSelectedClasses = `before:absolute before:w-[36px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[18px] ${synchronizedAnimation} after:absolute after:inset-[1.6px] after:rounded-md ${
 		SelectedElementAfterBgClasses[element.Type]
 	}`;
 
