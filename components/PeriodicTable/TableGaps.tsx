@@ -8,9 +8,8 @@ const TableGaps = () => {
 	const { highlightedElementsType } = useElementsStore();
 
 	// Span the empty space between the elements in the top 3 periods.
-	const HydrogenHeliumGap = <div className="col-span-16 col-start-3 row-start-2" />;
-	const BerylliumBoronGap = <div className="col-span-10 col-start-4 row-start-3" />;
-	const MagnesiumAluminiumGap = <div className="col-span-10 col-start-4 row-start-4" />;
+	const HydrogenHeliumLeftGap = <div className="col-start-3 row-start-2" />;
+	const HydrogenHeliumRightGap = <div className="col-start-14 col-span-5 row-start-2" />;
 
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (
@@ -43,9 +42,8 @@ const TableGaps = () => {
 
 	return (
 		<>
-			{HydrogenHeliumGap}
-			{BerylliumBoronGap}
-			{MagnesiumAluminiumGap}
+			{HydrogenHeliumLeftGap}
+			{HydrogenHeliumRightGap}
 
 			{LathanideSeperatorCard}
 			{ActinideSeperatorCard}

@@ -10,7 +10,7 @@ const TooltipProvider = TooltipPrimitive.Provider;
 const Tooltip = React.forwardRef<
 	React.ElementRef<typeof TooltipPrimitive.Root>,
 	React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>
->(({ ...props }) => <TooltipPrimitive.Root delayDuration={0} {...props} />);
+>(({ ...props }, ref) => <TooltipPrimitive.Root delayDuration={0} {...props} />);
 Tooltip.displayName = 'Tooltip';
 
 const TooltipTrigger = TooltipPrimitive.Trigger;

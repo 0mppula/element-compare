@@ -57,7 +57,7 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const handleSelectElement = () => {
 		setHighlightedElementsType(null);
 
-		if (selectedElements?.length < 2) {
+		if (selectedElements?.length < 2 && !isSelected) {
 			setSelectedElements((prev) => [...prev, element]);
 		}
 
