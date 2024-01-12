@@ -14,20 +14,15 @@ function DashBoard() {
 	const selectedCard2 = selectedElements.length > 1 ? <SelectedCard index={1} /> : <div></div>;
 
 	return (
-		<Card className="border-none grid grid-cols-[4fr_2fr_4fr] grid-rows-[278px] gap-2 row-start-2 row-span-3 col-start-4 col-span-10">
+		<Card className="border p-2 grid grid-cols-[4fr_2fr_4fr] grid-rows-[262px] gap-2 row-start-2 row-span-3 col-start-4 col-span-10">
 			{selectedCard1}
 
 			<div className="flex flex-col justify-center gap-1">
-				<Button
-					disabled={selectedElements.length < 2}
-					className="text-base"
-					onClick={handleCompare}
-				>
+				<Button disabled={selectedElements.length < 2} onClick={handleCompare}>
 					Compare
 				</Button>
 
 				<Button
-					className="text-base"
 					disabled={selectedElements.length === 0}
 					onClick={() => setSelectedElements([])}
 				>
