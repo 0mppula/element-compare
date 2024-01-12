@@ -60,6 +60,10 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 		if (selectedElements?.length < 2) {
 			setSelectedElements((prev) => [...prev, element]);
 		}
+
+		if (selectedElements?.length === 2) {
+			setSelectedElements([element]);
+		}
 	};
 
 	return (
