@@ -11,11 +11,11 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 
 	return (
 		<Button
-			className={`flex flex-col justify-between overflow-hidden p-4 h-full w-full rounded-lg border bg-card text-card-foreground shadow-sm ${
+			className={`text-base flex flex-col justify-between overflow-hidden p-4 h-full w-full rounded-lg border bg-card text-card-foreground shadow-sm ${
 				ElementTypeColors[selectedElements[index].Type]
 			}`}
 		>
-			<div>
+			<div className="w-full">
 				<p className="flex justify-between items-center">
 					<span>{selectedElements[index].AtomicNumber}</span>
 					<span>{selectedElements[index].AtomicMass} u</span>
@@ -27,7 +27,7 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 				</p>
 			</div>
 
-			<div>
+			<div className="w-full">
 				<h2 className="text-center scroll-m-2 text-6xl font-semibold tracking-tight">
 					{selectedElements[index].Symbol}
 				</h2>
@@ -35,7 +35,7 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 				<p className="text-center"> {selectedElements[index].Element}</p>
 			</div>
 
-			<div>
+			<div className="w-full text-left">
 				<p className="capitalize">Type: {selectedElements[index].Type}</p>
 				<p className="capitalize">Phase: {selectedElements[index].Phase}</p>
 				<p>Density: {selectedElements[index].Density}</p>
