@@ -57,11 +57,11 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const handleSelectElement = () => {
 		setHighlightedElementsType(null);
 
-		if (selectedElements?.length < 2 && !isSelected) {
+		if (selectedElements?.length < 2 && !isSelected && !selectedElements.includes(element)) {
 			setSelectedElements((prev) => [...prev, element]);
 		}
 
-		if (selectedElements?.length === 2) {
+		if (selectedElements?.length === 2 && !selectedElements.includes(element)) {
 			setSelectedElements([element]);
 		}
 	};
@@ -69,9 +69,11 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	return (
 		<Card
 			onClick={handleSelectElement}
-			className={`border-none p-1 col-span-1 ${ElementTypeColors[element.Type]} ${
-				ElementRowStarts[elementRowStart]
-			} text-[12px] overflow-hidden relative ${isSelected ? isSelectedClasses : ''} ${
+			className={`cursor-pointer border-none p-1 col-span-1 ${
+				ElementTypeColors[element.Type]
+			} ${ElementRowStarts[elementRowStart]} text-[12px] overflow-hidden relative ${
+				isSelected ? isSelectedClasses : ''
+			} ${
 				isHighlighted
 					? `before:absolute before:w-[80px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[-3px] after:absolute after:inset-[1.6px] after:rounded-md ${
 							SelectedElementAfterBgClasses[element.Type]
