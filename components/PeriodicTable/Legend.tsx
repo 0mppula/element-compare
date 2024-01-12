@@ -4,6 +4,7 @@ import { IElementType } from '@/types/elements';
 import { pluralizeElement } from '@/utils';
 import { Squircle } from 'lucide-react';
 import { Button } from '../ui/button';
+import { Card } from '../ui/card';
 
 const Legend = () => {
 	const { highlightedElementsType, setHighlightedElementsType, setSelectedElements } =
@@ -44,7 +45,7 @@ const Legend = () => {
 	};
 
 	return (
-		<div className="row-start-10 row-span-2 col-start-1 col-span-4 flex gap-1 flex-wrap p-1">
+		<Card className="row-start-10 row-span-2 col-start-1 col-span-4 flex gap-[3px] flex-wrap p-1">
 			{elementTypes.map((type: IElementType) => (
 				<Button
 					key={`element-toggle-${type}`}
@@ -59,7 +60,7 @@ const Legend = () => {
 					<Squircle className={`w-3 h-3 ${ElementTypeLegendClasses[type]}`} />
 				</Button>
 			))}
-		</div>
+		</Card>
 	);
 };
 

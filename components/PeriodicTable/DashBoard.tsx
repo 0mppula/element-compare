@@ -19,6 +19,7 @@ function DashBoard() {
 
 			<div className="flex flex-col justify-center gap-2">
 				<Button
+					className="font-semibold"
 					variant="secondary"
 					disabled={selectedElements.length === 0}
 					onClick={() => setSelectedElements([])}
@@ -26,7 +27,11 @@ function DashBoard() {
 					Clear
 				</Button>
 
-				<Button disabled={selectedElements.length < 2} onClick={handleCompare}>
+				<Button
+					className="font-semibold"
+					disabled={selectedElements.length < 2}
+					onClick={handleCompare}
+				>
 					Compare
 				</Button>
 			</div>
