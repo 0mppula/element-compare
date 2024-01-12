@@ -18,15 +18,16 @@ function DashBoard() {
 			{selectedCard1}
 
 			<div className="flex flex-col justify-center gap-2">
-				<Button disabled={selectedElements.length < 2} onClick={handleCompare}>
-					Compare
-				</Button>
-
 				<Button
+					variant="secondary"
 					disabled={selectedElements.length === 0}
 					onClick={() => setSelectedElements([])}
 				>
 					Clear
+				</Button>
+
+				<Button disabled={selectedElements.length < 2} onClick={handleCompare}>
+					Compare
 				</Button>
 			</div>
 

@@ -15,27 +15,27 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 				ElementTypeColors[selectedElements[index].Type]
 			}`}
 		>
-			<div className="w-full">
+			<div className="w-full leading-5">
 				<p className="flex justify-between items-center">
 					<span>{selectedElements[index].AtomicNumber}</span>
 					<span>{selectedElements[index].AtomicMass} u</span>
 				</p>
 
-				<p className="flex justify-between items-center">
+				<p className="flex justify-between items-center ">
 					<span>Group: {selectedElements[index].Group}</span>
 					<span>Period: {selectedElements[index].Period}</span>
 				</p>
 			</div>
 
-			<div className="w-full">
+			<div className="w-full leading-5">
 				<h2 className="text-center scroll-m-2 text-6xl font-semibold tracking-tight">
 					{selectedElements[index].Symbol}
 				</h2>
 
-				<p className="text-center"> {selectedElements[index].Element}</p>
+				<h3 className="text-center text-xl"> {selectedElements[index].Element}</h3>
 			</div>
 
-			<div className="w-full text-left">
+			<div className="w-full text-left leading-5">
 				<p className="capitalize">Type: {selectedElements[index].Type}</p>
 				<p className="capitalize">Phase: {selectedElements[index].Phase}</p>
 				<p>Density: {selectedElements[index].Density}</p>
