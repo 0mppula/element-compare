@@ -9,29 +9,21 @@ interface ElementProps {
 const Element = ({ element }: ElementProps) => {
 	return (
 		<Tooltip>
-			<TooltipTrigger asChild>
-				<div>
-					<ElementCardWrapper element={element}>
-						<div className="z-20 relative">
-							<div>
-								<p className="flex justify-between items-center">
-									{element.AtomicNumber}
-								</p>
-							</div>
+			<ElementCardWrapper element={element}>
+				<div className="z-20 relative">
+					<div>
+						<p className="flex justify-between items-center">{element.AtomicNumber}</p>
+					</div>
 
-							<h2 className="text-center scroll-m-2 leading-6 text-2xl font-semibold tracking-tight mb-1">
-								{element.Symbol}
-							</h2>
+					<h2 className="text-center scroll-m-2 leading-6 text-2xl font-semibold tracking-tight mb-1">
+						{element.Symbol}
+					</h2>
 
-							<p className="text-center text-ellipsis overflow-hidden">
-								{element.Element}
-							</p>
+					<p className="text-center text-ellipsis overflow-hidden">{element.Element}</p>
 
-							<p className="text-center">{element.AtomicMass}</p>
-						</div>
-					</ElementCardWrapper>
+					<p className="text-center">{element.AtomicMass}</p>
 				</div>
-			</TooltipTrigger>
+			</ElementCardWrapper>
 
 			<TooltipContent>
 				<p>{element.Element}</p>

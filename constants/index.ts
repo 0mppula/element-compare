@@ -1,16 +1,21 @@
 import { IElementType } from '@/types/elements';
 
-export const ElementTypeColors: { [key in IElementType]: string } = {
-	'alkali metal': 'bg-lime-400 dark:bg-lime-800',
-	metalloid: 'bg-yellow-400 dark:bg-yellow-900',
-	actinide: 'bg-orange-400 dark:bg-orange-900',
-	'alkali earth metal': 'bg-red-400 dark:bg-red-800',
-	'reactive non-metal': 'bg-blue-400 dark:bg-blue-800',
-	'unknown type': 'bg-gray-400 dark:bg-gray-700',
-	'transition metal': 'bg-violet-400 dark:bg-violet-800',
-	'noble gas': 'bg-fuchsia-400 dark:bg-fuchsia-800',
-	'post-transition metal': 'bg-teal-400 dark:bg-teal-800',
-	lanthanide: 'bg-sky-400 dark:bg-sky-800',
+export const ElementCardBgClasses: { [key in IElementType]: string } = {
+	'alkali metal': 'bg-lime-400 dark:bg-lime-800 hover:bg-lime-400/90 hover:dark:bg-lime-800/90',
+	metalloid:
+		'bg-yellow-400 dark:bg-yellow-900 hover:bg-yellow-400/90 hover:dark:bg-yellow-900/90',
+	actinide: 'bg-orange-400 dark:bg-orange-900 hover:bg-orange-400/90 hover:dark:bg-orange-900/90',
+	'alkali earth metal': 'bg-red-400 dark:bg-red-800 hover:bg-red-400/90 hover:dark:bg-red-800/90',
+	'reactive non-metal':
+		'bg-blue-400 dark:bg-blue-800 hover:bg-blue-400/90 hover:dark:bg-blue-800/90',
+	'unknown type': 'bg-gray-400 dark:bg-gray-700 hover:bg-gray-400/90 hover:dark:bg-gray-700/90',
+	'transition metal':
+		'bg-violet-400 dark:bg-violet-800 hover:bg-violet-400/90 hover:dark:bg-violet-800/90',
+	'noble gas':
+		'bg-fuchsia-400 dark:bg-fuchsia-800 hover:bg-fuchsia-400/90 hover:dark:bg-fuchsia-800/90',
+	'post-transition metal':
+		'bg-teal-400 dark:bg-teal-800 hover:bg-teal-400/90 hover:dark:bg-teal-800/90',
+	lanthanide: 'bg-sky-400 dark:bg-sky-800 hover:bg-sky-400/90 hover:dark:bg-sky-800/90',
 };
 
 export const SelectedElementAfterBgClasses: { [key in IElementType]: string } = {

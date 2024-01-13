@@ -1,4 +1,4 @@
-import { ElementTypeColors } from '@/constants';
+import { ElementCardBgClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { Button } from '../ui/button';
 
@@ -12,7 +12,7 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 	return (
 		<Button
 			className={`text-base flex flex-col justify-between overflow-hidden p-4 h-full w-full rounded-lg border bg-card text-card-foreground shadow-sm ${
-				ElementTypeColors[selectedElements[index].Type]
+				ElementCardBgClasses[selectedElements[index].Type]
 			}`}
 		>
 			<div className="w-full leading-[22px]">

@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementTypeColors, SelectedElementAfterBgClasses } from '@/constants';
+import { ElementCardBgClasses, SelectedElementAfterBgClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { Card } from '../ui/card';
 
@@ -14,7 +14,9 @@ const TableGaps = () => {
 	// Spans the empty space that is allocated for the lanthanide and actinide elements seperator.
 	const LathanideSeperatorCard = (
 		<Card
-			className={`overflow-hidden relative ${ElementTypeColors['lanthanide']} ${
+			className={`pointer-events-none overflow-hidden relative ${
+				ElementCardBgClasses['lanthanide']
+			} ${
 				highlightedElementsType === 'lanthanide'
 					? `before:absolute before:w-[80px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[-3px] after:absolute after:inset-[1.6px] after:rounded-md ${SelectedElementAfterBgClasses['lanthanide']}`
 					: ''
@@ -24,7 +26,9 @@ const TableGaps = () => {
 
 	const ActinideSeperatorCard = (
 		<Card
-			className={`overflow-hidden relative ${ElementTypeColors['actinide']} ${
+			className={`pointer-events-none overflow-hidden relative ${
+				ElementCardBgClasses['actinide']
+			} ${
 				highlightedElementsType === 'actinide'
 					? `before:absolute before:w-[80px] before:h-[134px] before:bg-neutral-950 before:dark:bg-neutral-50 before:top-[-22px] before:left-[-3px] after:absolute after:inset-[1.6px] after:rounded-md ${SelectedElementAfterBgClasses['actinide']}`
 					: ''
