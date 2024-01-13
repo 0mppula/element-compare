@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className="overflow-auto" suppressHydrationWarning>
+		<html lang="en" suppressHydrationWarning>
 			<body
 				className={`${cn(
 					sourceCodePro.className,
-					'bg-neutral-100 dark:bg-neutral-950 antialiased overflow-auto'
+					'bg-neutral-100 dark:bg-neutral-950 antialiased'
 				)}`}
 			>
 				<Providers>
