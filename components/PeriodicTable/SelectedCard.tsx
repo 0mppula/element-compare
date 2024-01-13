@@ -43,12 +43,12 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 						</h2>
 
 						<h3 className="text-center text-xl">{selectedElements[index]?.Element}</h3>
+						<p className="text-center capitalize">{selectedElements[index]?.Type}</p>
 					</div>
 
 					<div className="w-full text-left leading-[22px]">
-						<p className="capitalize">Type: {selectedElements[index]?.Type}</p>
 						<p className="capitalize">Phase: {selectedElements[index]?.Phase}</p>
-						<p>Density: {selectedElements[index]?.Density}</p>
+						<p>Density: {selectedElements[index]?.Density} g/cm3 </p>
 						<p className="overflow-hidden text-ellipsis">
 							Discovered: {selectedElements[index]?.Year}
 						</p>
@@ -76,7 +76,7 @@ const SelectedCard = ({ index }: SelectedCardProps) => {
 						<h2 className="text-center text-xl">Element #{index + 1}</h2>
 					</div>
 
-					<Card className="h-[88px] w-full bg-muted" />
+					<Card className="h-[66px] mt-[22px] w-full bg-muted" />
 				</Card>
 			</TooltipTrigger>
 
