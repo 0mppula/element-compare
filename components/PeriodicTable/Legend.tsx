@@ -40,8 +40,14 @@ const Legend = () => {
 	};
 
 	const handleHighLightToggle = (type: IElementType) => {
-		setHighlightedElementsType(type);
-		setSelectedElements([]);
+		// If the type is already highlighted, unhighlight it.
+		if (highlightedElementsType === type) {
+			setHighlightedElementsType(null);
+		} else {
+			// Otherwise, highlight it and unselect all selected elements.
+			setHighlightedElementsType(type);
+			setSelectedElements([]);
+		}
 	};
 
 	return (
