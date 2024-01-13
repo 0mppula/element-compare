@@ -20,7 +20,7 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	} = useElementsStore();
 
 	const isHighlighted = element.Type === highlightedElementsType;
-	const isSelected = selectedElements.some((el) => el.AtomicNumber === element.AtomicNumber);
+	const isSelected = selectedElements.some((el) => el?.AtomicNumber === element.AtomicNumber);
 	const isActinide = element.Type === 'actinide';
 	const isLanthanide = element.Type === 'lanthanide';
 
@@ -58,12 +58,36 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const handleSelectElement = () => {
 		setHighlightedElementsType(null);
 
-		if (selectedElements?.length < 2 && !isSelected && !selectedElements.includes(element)) {
-			setSelectedElements((prev) => [...prev, element]);
+		const bothSelected = selectedElements.every((el) => el !== null);
+
+		// If element is already selected, deselect it by replacing it with null.
+		if (isSelected) {
+			setSelectedElements((prev) =>
+				prev.map((el) => (el?.AtomicNumber === element.AtomicNumber ? null : el))
+			);
 		}
 
-		if (selectedElements?.length === 2 && !selectedElements.includes(element)) {
-			setSelectedElements([element]);
+		// If element is not yet selected, select it by replacing the first null element in the array.
+		if (!isSelected && !bothSelected) {
+			setSelectedElements((prev) => {
+				const nullIndex = prev.findIndex((el) => el === null);
+				const newSelectedElements = [...prev];
+
+				newSelectedElements[nullIndex] = element;
+				return newSelectedElements;
+			});
+		}
+
+		// If both elements are selected and a third element is selected, reset the selected elements
+		// array and select the new element.
+		if (bothSelected && !isSelected) {
+			const newEmptySelectedElements: (IElement | null)[] = [...selectedElements].map(
+				(_) => null
+			);
+
+			newEmptySelectedElements[0] = element;
+
+			setSelectedElements(newEmptySelectedElements);
 		}
 	};
 

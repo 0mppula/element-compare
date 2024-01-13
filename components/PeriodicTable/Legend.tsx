@@ -46,7 +46,7 @@ const Legend = () => {
 		} else {
 			// Otherwise, highlight it and unselect all selected elements.
 			setHighlightedElementsType(type);
-			setSelectedElements([]);
+			setSelectedElements((prev) => prev.map((_) => null));
 		}
 	};
 

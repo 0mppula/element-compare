@@ -6,8 +6,10 @@ interface IElementsStore {
 	setHighlightedElementsType: (
 		elementType: (IElementType | null) | ((prev: IElementType | null) => IElementType | null)
 	) => void;
-	selectedElements: IElement[];
-	setSelectedElements: (value: IElement[] | ((prev: IElement[]) => IElement[])) => void;
+	selectedElements: (IElement | null)[];
+	setSelectedElements: (
+		value: (IElement | null)[] | ((prev: (IElement | null)[]) => (IElement | null)[])
+	) => void;
 }
 
 const useElementsStore = create<IElementsStore>((set) => ({
@@ -20,7 +22,7 @@ const useElementsStore = create<IElementsStore>((set) => ({
 					: elementType,
 		})),
 
-	selectedElements: [],
+	selectedElements: [null, null],
 	setSelectedElements: (value) =>
 		set((state) => ({
 			selectedElements: typeof value === 'function' ? value(state.selectedElements) : value,

@@ -10,8 +10,8 @@ function DashBoard() {
 
 	const handleCompare = () => {};
 
-	const selectedCard1 = selectedElements.length > 0 ? <SelectedCard index={0} /> : <div></div>;
-	const selectedCard2 = selectedElements.length > 1 ? <SelectedCard index={1} /> : <div></div>;
+	const selectedCard1 = selectedElements.length > 0 && <SelectedCard index={0} />;
+	const selectedCard2 = selectedElements.length > 1 && <SelectedCard index={1} />;
 
 	return (
 		<Card className="border p-2 grid grid-cols-[4fr_2fr_4fr] grid-rows-[262px] gap-2 row-start-2 row-span-3 col-start-4 col-span-10">
@@ -22,7 +22,7 @@ function DashBoard() {
 					className="font-semibold"
 					variant="secondary"
 					disabled={selectedElements.length === 0}
-					onClick={() => setSelectedElements([])}
+					onClick={() => setSelectedElements((prev) => prev.map((_) => null))}
 				>
 					Clear
 				</Button>
