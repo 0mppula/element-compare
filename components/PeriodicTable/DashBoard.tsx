@@ -8,6 +8,10 @@ import SelectedCard from './SelectedCard';
 function DashBoard() {
 	const { selectedElements, setSelectedElements } = useElementsStore();
 
+	const selectedCount = selectedElements.reduce((acc, element) => {
+		return acc + (element !== null ? 1 : 0);
+	}, 0);
+
 	const handleCompare = () => {};
 
 	const selectedCard1 = selectedElements.length > 0 && <SelectedCard index={0} />;
@@ -21,7 +25,7 @@ function DashBoard() {
 				<Button
 					className="font-semibold"
 					variant="secondary"
-					disabled={selectedElements.length === 0}
+					disabled={selectedCount === 0}
 					onClick={() => setSelectedElements((prev) => prev.map((_) => null))}
 				>
 					Clear
@@ -29,7 +33,7 @@ function DashBoard() {
 
 				<Button
 					className="font-semibold"
-					disabled={selectedElements.length < 2}
+					disabled={selectedCount < 2}
 					onClick={handleCompare}
 				>
 					Compare
