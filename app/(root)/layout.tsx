@@ -1,6 +1,6 @@
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="container min-h-svh pt-[72.8px] overflow-x-auto w-[calc(1448px)]">
+		<div className="container min-h-screen pt-[72.8px] overflow-x-auto min-w-[1200px] max-w-[calc(1448px)]">
 			{children}
 		</div>
 	);
