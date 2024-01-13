@@ -4,15 +4,19 @@ import useElementsStore from '@/hooks/useElementsStore';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import SelectedCard from './SelectedCard';
+import useCompareElementModalStore from '@/hooks/useCompareElementModalStore';
 
 function DashBoard() {
 	const { selectedElements, setSelectedElements } = useElementsStore();
+	const { setIsOpen } = useCompareElementModalStore();
 
 	const selectedCount = selectedElements.reduce((acc, element) => {
 		return acc + (element !== null ? 1 : 0);
 	}, 0);
 
-	const handleCompare = () => {};
+	const handleCompare = () => {
+		setIsOpen(true);
+	};
 
 	const selectedCard1 = selectedElements.length > 0 && <SelectedCard index={0} />;
 	const selectedCard2 = selectedElements.length > 1 && <SelectedCard index={1} />;
