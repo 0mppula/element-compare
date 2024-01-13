@@ -57,7 +57,7 @@ const Legend = () => {
 					key={`element-toggle-${type}`}
 					onClick={() => handleHighLightToggle(type)}
 					className={`text-[12px] flex justify-center items-center gap-1 leading-3 hover:underline ${
-						type === highlightedElementsType ? 'font-extrabold' : ''
+						type === highlightedElementsType ? 'font-extrabold bg-accent' : ''
 					}`}
 					variant="ghost"
 					size="xs"
