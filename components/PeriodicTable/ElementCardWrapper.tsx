@@ -24,10 +24,14 @@ const ElementCardWrapper = ({ children, element }: ElementCardWrapperProps) => {
 	const isActinide = element.Type === 'actinide';
 	const isLanthanide = element.Type === 'lanthanide';
 
+	const selectedCount = selectedElements.reduce((acc, element) => {
+		return acc + (element !== null ? 1 : 0);
+	}, 0);
+
 	const synchronizedAnimation =
-		isSelected && selectedElements.length !== 2
+		isSelected && selectedCount !== 2
 			? 'before:animate-spin'
-			: isSelected && selectedElements.length === 2
+			: isSelected && selectedCount === 2
 			? 'before:animate-spin2'
 			: '';
 
