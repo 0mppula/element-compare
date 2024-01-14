@@ -1,7 +1,6 @@
 import {
 	Table,
 	TableBody,
-	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
@@ -10,7 +9,7 @@ import {
 import { formattedElementPropertyNames } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
 import { IElement } from '@/types/elements';
-import { compareElementProperty, elementPropertyUnit } from '@/utils';
+import { compareElementProperty, formatElementProperty } from '@/utils';
 
 interface CompareTableProps {}
 
@@ -18,7 +17,7 @@ const CompareTable = ({}: CompareTableProps) => {
 	const { selectedElements } = useElementsStore();
 
 	return (
-		<Table className="rounded-lg relative">
+		<Table className="rounded-lg">
 			<TableHeader>
 				<TableRow>
 					<TableHead className="w-[100px]">Property</TableHead>
@@ -36,12 +35,15 @@ const CompareTable = ({}: CompareTableProps) => {
 						.map((key: keyof IElement) => (
 							<TableRow key={`row-${key}`}>
 								<TableCell>{formattedElementPropertyNames[key]}</TableCell>
+
 								<TableCell>
-									{selectedElements[0]![key]} {elementPropertyUnit(key)}
+									{formatElementProperty(key, selectedElements[0]![key])}
 								</TableCell>
+
 								<TableCell>
-									{selectedElements[1]![key]} {elementPropertyUnit(key)}
+									{formatElementProperty(key, selectedElements[1]![key])}
 								</TableCell>
+
 								<TableCell className="text-right">
 									{compareElementProperty(
 										selectedElements[0]!,

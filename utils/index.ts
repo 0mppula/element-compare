@@ -35,9 +35,18 @@ export const compareElementProperty = (
 
 	if (incompatibleProperties.includes(property)) return 'N/A';
 
-	const format = elementPropertyUnit(property);
+	return formatElementProperty(
+		property,
+		(Number(element1[property]) - Number(element2[property])).toFixed(2)
+	);
+};
 
-	return `${(Number(element1[property]) - Number(element2[property])).toFixed(2)} ${format}`;
+export const formatElementProperty = (property: keyof IElement, value: string | number) => {
+	if (value === '') return 'No data';
+
+	const unit = elementPropertyUnit(property);
+
+	return `${value} ${unit}`;
 };
 
 export const elementPropertyUnit = (property: keyof IElement) => {
@@ -52,7 +61,7 @@ export const elementPropertyUnit = (property: keyof IElement) => {
 		SpecificHeat: 'J/(g·K)',
 	};
 
-	const format = formats[property] || '';
+	const unit = formats[property] || '';
 
-	return `${format}`.trim();
+	return `${unit}`.trim();
 };
