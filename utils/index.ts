@@ -31,13 +31,27 @@ export const compareElementProperty = (
 		'Discoverer',
 	];
 
+	const noFractionDigitProperties: Array<keyof IElement> = [
+		'AtomicNumber',
+		'NumberofNeutrons',
+		'NumberofProtons',
+		'NumberofElectrons',
+		'Period',
+		'Group',
+		'NumberOfIsotopes',
+		'NumberofShells',
+		'NumberofValence',
+	];
+
 	if (element1[property] === '' || element2[property] === '') return 'N/A';
 
 	if (incompatibleProperties.includes(property)) return 'N/A';
 
+	const fractionDigits = noFractionDigitProperties.includes(property) ? 0 : 2;
+
 	return formatElementProperty(
 		property,
-		(Number(element1[property]) - Number(element2[property])).toFixed(2)
+		(Number(element1[property]) - Number(element2[property])).toFixed(fractionDigits)
 	);
 };
 
