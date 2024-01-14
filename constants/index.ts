@@ -57,7 +57,7 @@ export const formattedElementPropertyNames: { [key in keyof IElement]: string } 
 	BoilingPoint: 'Boiling Point',
 	NumberOfIsotopes: 'Number of Isotopes',
 	Discoverer: 'Discoverer',
-	Year: 'Year',
+	Year: 'Discovery Year',
 	SpecificHeat: 'Specific Heat',
 	NumberofShells: 'Number of Shells',
 	NumberofValence: 'Number of Valence',
