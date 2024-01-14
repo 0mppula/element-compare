@@ -1,4 +1,4 @@
-import { IElementType } from '@/types/elements';
+import { IElement, IElementType } from '@/types/elements';
 
 export const ElementCardBgClasses: { [key in IElementType]: string } = {
 	'alkali metal': 'bg-lime-400 dark:bg-lime-800 hover:bg-lime-400/90 hover:dark:bg-lime-800/90',
@@ -30,4 +30,35 @@ export const SelectedElementAfterBgClasses: { [key in IElementType]: string } = 
 	'noble gas': 'after:bg-fuchsia-400 after:dark:bg-fuchsia-800',
 	'post-transition metal': 'after:bg-teal-400 after:dark:bg-teal-800',
 	lanthanide: 'after:bg-sky-400 after:dark:bg-sky-800',
+};
+
+export const formattedElementPropertyNames: { [key in keyof IElement]: string } = {
+	AtomicNumber: 'Atomic Number',
+	Element: 'Element',
+	Symbol: 'Symbol',
+	AtomicMass: 'Atomic Mass',
+	NumberofNeutrons: 'Number of Neutrons',
+	NumberofProtons: 'Number of Protons',
+	NumberofElectrons: 'Number of Electrons',
+	Period: 'Period',
+	Group: 'Group',
+	Phase: 'phase at STP',
+	Radioactive: 'Radioactive',
+	Natural: 'Natural',
+	Metal: 'Metal',
+	Nonmetal: 'Nonmetal',
+	Metalloid: 'Metalloid',
+	Type: 'Type',
+	AtomicRadius: 'Atomic Radius',
+	Electronegativity: 'Electronegativity',
+	FirstIonization: 'First Ionization',
+	Density: 'Density',
+	MeltingPoint: 'Melting Point',
+	BoilingPoint: 'Boiling Point',
+	NumberOfIsotopes: 'Number of Isotopes',
+	Discoverer: 'Discoverer',
+	Year: 'Year',
+	SpecificHeat: 'Specific Heat',
+	NumberofShells: 'Number of Shells',
+	NumberofValence: 'Number of Valence',
 };

@@ -1,4 +1,4 @@
-import { IElementType } from '@/types/elements';
+import { IElement, IElementType } from '@/types/elements';
 
 export const pluralizeElement = (type: IElementType) => {
 	if (type === 'alkali metal') return 'Alkali metals';
@@ -11,4 +11,48 @@ export const pluralizeElement = (type: IElementType) => {
 	if (type === 'noble gas') return 'Noble gases';
 	if (type === 'post-transition metal') return 'Post-transition metals';
 	if (type === 'lanthanide') return 'Lanthanides';
+};
+
+export const compareElementProperty = (
+	element1: IElement,
+	element2: IElement,
+	property: keyof IElement
+) => {
+	const incompatibleProperties: Array<keyof IElement> = [
+		'Element',
+		'Symbol',
+		'Phase',
+		'Radioactive',
+		'Natural',
+		'Metal',
+		'Nonmetal',
+		'Metalloid',
+		'Type',
+		'Discoverer',
+	];
+
+	if (element1[property] === '' || element2[property] === '') return 'N/A';
+
+	if (incompatibleProperties.includes(property)) return 'N/A';
+
+	const format = elementPropertyUnit(property);
+
+	return `${(Number(element1[property]) - Number(element2[property])).toFixed(2)} ${format}`;
+};
+
+export const elementPropertyUnit = (property: keyof IElement) => {
+	const formats: { [key: string]: string } = {
+		AtomicMass: 'g/mol',
+		AtomicRadius: 'Å',
+		Electronegativity: 'Pauling',
+		FirstIonization: 'eV',
+		Density: 'g/cm³',
+		MeltingPoint: 'K',
+		BoilingPoint: 'K',
+		SpecificHeat: 'J/(g·K)',
+	};
+
+	const format = formats[property] || '';
+
+	return `${format}`.trim();
 };
