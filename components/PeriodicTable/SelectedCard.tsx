@@ -1,5 +1,6 @@
 import { ElementCardBgClasses } from '@/constants';
 import useElementsStore from '@/hooks/useElementsStore';
+import useInspectElementModalStore from '@/hooks/useInspectElementModalStore';
 import { IElementType } from '@/types/elements';
 import { Atom } from 'lucide-react';
 import { Button } from '../ui/button';
@@ -11,46 +12,55 @@ interface SelectedCardProps {
 }
 
 const SelectedCard = ({ index }: SelectedCardProps) => {
-	const { selectedElements, setSelectedElements } = useElementsStore();
+	const { selectedElements, setSelectedElements, setInspectedElement } = useElementsStore();
+	const { setIsOpen } = useInspectElementModalStore();
 
 	const selectedCount = selectedElements.reduce((acc, element) => {
 		return acc + (element !== null ? 1 : 0);
 	}, 0);
 
+	const selectedElement = selectedElements[index];
+
+	const handleInspect = () => {
+		setInspectedElement(selectedElement);
+		setIsOpen(true);
+	};
+
 	const ElementCard = (
 		<>
 			<TooltipTrigger asChild>
 				<Button
+					onClick={handleInspect}
 					className={`text-base flex flex-col justify-between overflow-hidden p-4 h-full w-full rounded-lg border bg-card text-card-foreground ${
-						ElementCardBgClasses[selectedElements[index]?.Type as IElementType]
+						ElementCardBgClasses[selectedElement?.Type as IElementType]
 					}`}
 				>
 					<div className="w-full leading-[22px]">
 						<p className="flex justify-between items-center">
-							<span>{selectedElements[index]?.AtomicNumber}</span>
-							<span>{selectedElements[index]?.AtomicMass} u</span>
+							<span>{selectedElement?.AtomicNumber}</span>
+							<span>{selectedElement?.AtomicMass} u</span>
 						</p>
 
 						<p className="flex justify-between items-center ">
-							<span>Group: {selectedElements[index]?.Group}</span>
-							<span>Period: {selectedElements[index]?.Period}</span>
+							<span>Group: {selectedElement?.Group}</span>
+							<span>Period: {selectedElement?.Period}</span>
 						</p>
 					</div>
 
 					<div className="w-full leading-[22px]">
 						<h2 className="text-center scroll-m-2 text-5xl font-semibold tracking-tight">
-							{selectedElements[index]?.Symbol}
+							{selectedElement?.Symbol}
 						</h2>
 
-						<h3 className="text-center text-xl">{selectedElements[index]?.Element}</h3>
-						<p className="text-center capitalize">{selectedElements[index]?.Type}</p>
+						<h3 className="text-center text-xl">{selectedElement?.Element}</h3>
+						<p className="text-center capitalize">{selectedElement?.Type}</p>
 					</div>
 
 					<div className="w-full text-left leading-[22px]">
-						<p className="capitalize">Phase: {selectedElements[index]?.Phase}</p>
-						<p>Density: {selectedElements[index]?.Density} g/cm3 </p>
+						<p className="capitalize">Phase: {selectedElement?.Phase}</p>
+						<p>Density: {selectedElement?.Density} g/cm3 </p>
 						<p className="overflow-hidden text-ellipsis">
-							Discovered: {selectedElements[index]?.Year}
+							Discovered: {selectedElement?.Year}
 						</p>
 					</div>
 				</Button>

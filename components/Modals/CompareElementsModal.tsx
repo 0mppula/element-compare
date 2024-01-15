@@ -19,7 +19,7 @@ const CompareElementsModal = () => {
 			<DialogContent className="max-w-[688px] max-h-[80vh] overflow-auto rounded-lg">
 				<DialogHeader>
 					<DialogTitle className="mb-2">
-						Comparing {selectedElements[0]?.Symbol} ({selectedElements[0]?.Element}) VS.{' '}
+						{selectedElements[0]?.Symbol} ({selectedElements[0]?.Element}) VS.{' '}
 						{selectedElements[1]?.Symbol} ({selectedElements[1]?.Element})
 					</DialogTitle>
 				</DialogHeader>

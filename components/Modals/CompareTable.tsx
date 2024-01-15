@@ -11,16 +11,14 @@ import useElementsStore from '@/hooks/useElementsStore';
 import { IElement } from '@/types/elements';
 import { compareElementProperty, formatElementProperty } from '@/utils';
 
-interface CompareTableProps {}
-
-const CompareTable = ({}: CompareTableProps) => {
+const CompareTable = () => {
 	const { selectedElements } = useElementsStore();
 
 	return (
 		<Table className="rounded-lg">
 			<TableHeader>
 				<TableRow>
-					<TableHead className="w-[100px]">Property</TableHead>
+					<TableHead>Property</TableHead>
 					<TableHead>{selectedElements[0]?.Element}</TableHead>
 					<TableHead>{selectedElements[1]?.Element}</TableHead>
 					<TableHead className="text-right">Difference</TableHead>

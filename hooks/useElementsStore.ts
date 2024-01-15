@@ -1,4 +1,4 @@
-import { IElementType, IElement } from '@/types/elements';
+import { IElement, IElementType } from '@/types/elements';
 import { create } from 'zustand';
 
 interface IElementsStore {
@@ -6,9 +6,15 @@ interface IElementsStore {
 	setHighlightedElementsType: (
 		elementType: (IElementType | null) | ((prev: IElementType | null) => IElementType | null)
 	) => void;
+
 	selectedElements: (IElement | null)[];
 	setSelectedElements: (
 		value: (IElement | null)[] | ((prev: (IElement | null)[]) => (IElement | null)[])
+	) => void;
+
+	inspectedElement: IElement | null;
+	setInspectedElement: (
+		value: (IElement | null) | ((prev: IElement | null) => IElement | null)
 	) => void;
 }
 
@@ -26,6 +32,12 @@ const useElementsStore = create<IElementsStore>((set) => ({
 	setSelectedElements: (value) =>
 		set((state) => ({
 			selectedElements: typeof value === 'function' ? value(state.selectedElements) : value,
+		})),
+
+	inspectedElement: null,
+	setInspectedElement: (value) =>
+		set((state) => ({
+			inspectedElement: typeof value === 'function' ? value(state.inspectedElement) : value,
 		})),
 }));
 
