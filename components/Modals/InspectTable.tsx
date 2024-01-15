@@ -26,6 +26,7 @@ const InspectTable = () => {
 			<TableBody>
 				{inspectedElement !== null &&
 					(Object.keys(inspectedElement) as Array<keyof IElement>)
+						.filter((key) => key !== 'Element' && key !== 'Symbol')
 						.sort()
 						.map((key: keyof IElement) => (
 							<TableRow key={`row-${key}`}>

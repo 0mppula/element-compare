@@ -29,6 +29,7 @@ const CompareTable = () => {
 				{selectedElements[0] !== null &&
 					selectedElements[1] !== null &&
 					(Object.keys(selectedElements[0]) as Array<keyof IElement>)
+						.filter((key) => key !== 'Element' && key !== 'Symbol')
 						.sort()
 						.map((key: keyof IElement) => (
 							<TableRow key={`row-${key}`}>
