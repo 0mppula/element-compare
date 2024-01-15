@@ -9,4 +9,5 @@ Users can:
 -   Inspect individual element properties.
 -   Toggle between dark and light modes.
 
-> [!NOTE] > The app is not responsive below 1260px due to the shape of the periodic table, so it is not recommended to use it on devices with a screen size smaller than 1260px.
+> [!NOTE]
+> The app is not responsive below 1260px due to the shape of the periodic table, so it is not recommended to use it on devices with a screen size smaller than 1260px.
