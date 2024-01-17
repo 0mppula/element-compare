@@ -41,6 +41,7 @@ export const compareElementProperty = (
 		'NumberOfIsotopes',
 		'NumberofShells',
 		'NumberofValence',
+		'Year',
 	];
 
 	if (element1[property] === '' || element2[property] === '') return 'N/A';
