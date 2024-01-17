@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
 import Providers from '@/components/providers';
 import { cn } from '@/lib/utils';
@@ -28,6 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Nav />
 
 					{children}
+
+					<Footer />
 				</Providers>
 			</body>
 		</html>
