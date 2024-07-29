@@ -4,6 +4,8 @@ import Providers from '@/components/providers';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Source_Code_Pro } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+
 import './globals.css';
 
 const sourceCodePro = Source_Code_Pro({
@@ -29,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Nav />
 
 					{children}
+					<Analytics />
 
 					<Footer />
 				</Providers>
